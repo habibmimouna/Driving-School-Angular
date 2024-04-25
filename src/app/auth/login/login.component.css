@@ -1,0 +1,105 @@
+.container {
+    height: 97vh;
+    font-family: inter;
+}
+
+.navbar-brand {
+    font-size: 4vh;
+    color: white;
+    font-family: inter;
+    padding-top: 20px;
+    padding-left: 20px;
+    cursor: pointer;
+
+}
+
+.form-container {
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.signin-container {
+    width: 25%;
+    height: 70%;
+    margin-top: 60px;
+    background-color: rgb(255, 254, 254);
+    padding: 20px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.signin-form h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.input-group {
+    margin-bottom: 15px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.input-group input {
+    
+    width: 100%;
+    padding: 10px;
+    border: 0px;
+    height: 3vh;
+    border-bottom: 2px solid rgba(0, 51, 255, 0.702);
+    outline: none;
+}
+
+button {
+    background-color: rgba(26, 26, 220, 0.768);
+    box-shadow: rgba(0, 51, 255, 0.613) 0px 2px 4px, rgba(0, 51, 255, 0.474) 0px 7px 13px -3px, rgba(0, 51, 255, 0.531) 0px -3px 0px inset;
+    color: white;
+    padding: 2px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    height: 35px;
+    width: 30vh;
+    margin-top: 20px;
+}
+
+button:hover {
+    background-color: #0114a1;
+    scale: 1.05;
+    transition: 0.6s;
+}
+
+.signup-link {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.signup-link a {
+    color: #000dbecf;
+    text-decoration: none;
+}
+
+.signup-link a:hover {
+    text-decoration: underline;
+    cursor: default;
+}
+
+@media (max-width: 768px) {
+    .signin-container {
+        flex-direction: column;
+        width: 90%;
+        height: auto;
+    }
+
+    .left-side,
+    .right-side {
+        width: 100%;
+        flex: none;
+    }
+}

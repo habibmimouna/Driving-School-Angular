@@ -1,0 +1,130 @@
+.container {
+    height: 97vh;
+}
+
+.form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.signup-container {
+    width: 45%;
+    height: 70%;
+    margin-top: 60px;
+    background-color: rgb(255, 254, 254);
+    padding: 20px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.navbar-brand {
+    font-size: 4vh;
+    color: white;
+    font-family: inter;
+    padding-top: 20px ;
+    padding-left: 20px;
+    cursor: pointer;
+
+}
+.header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.header h3 {
+    font-family: inter;
+}
+
+.header-img {
+    width: 14vh;
+}
+.inputs {
+    display: flex;
+    justify-content: space-between;
+    gap: 60px;
+}
+
+.col-1,
+.col-2 {
+    flex: 1;
+
+}
+
+
+
+.input-group {
+    margin-bottom: 5px;
+}
+
+.input-group label {
+    display: block;
+    margin-top: 15px;
+
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px;
+    border: 0px;
+    height: 3vh;
+    border-bottom: 2px solid rgba(0, 51, 255, 0.702);
+    outline: none;
+}
+
+.select-group select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    outline: none;
+    border-radius: 4px;
+    height: 5vh;
+}
+
+.submit-button-container {
+    margin-top: 2vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.back-class {
+    display: flex;
+    justify-content: end;
+    gap: 20px;
+}
+
+.back-home {
+    cursor: pointer;
+}
+
+button {
+    background-color: rgba(26, 26, 220, 0.768);
+    box-shadow: rgba(0, 51, 255, 0.613) 0px 2px 4px, rgba(0, 51, 255, 0.474) 0px 7px 13px -3px, rgba(0, 51, 255, 0.531) 0px -3px 0px inset;
+    color: white;
+    padding: 2px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    height: 35px;
+    width: 30vh;
+    margin-top: 20px;
+}
+
+button:hover {
+    background-color: #ff0000;
+    scale: 1.1;
+}
+
+button:hover {
+    background-color: #0114a1;
+    scale: 1.05;
+    transition: 0.6s;
+}
+
+.signin-link a:hover {
+    text-decoration: underline;
+    cursor: default;
+}
