@@ -2,16 +2,15 @@
 }
 .block {
   margin: 25px;
-  height: 400px;
+  height: 230px;
   background-color: white;
   border-radius: 15px;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   display: flex;
 }
 .desc {
-  padding: 80px;
+  padding: 50px;
   width: 50%;
-  margin-top: 30px;
   text-align: center;
   font-family: Inter;
   font-weight: 700;
@@ -19,7 +18,7 @@
 }
 .block-2 {
   margin: 25px;
-  height: 400px;
+  height: 230px;
   background-color: white;
   border-radius: 15px;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;

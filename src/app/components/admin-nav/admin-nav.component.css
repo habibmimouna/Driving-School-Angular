@@ -9,8 +9,8 @@
 .selector {
   border-radius: 30px;
   width: 90px;
-  height: 390px;
-  margin-top: 20px;
+  height: 450px;
+  
   background-color: #ffffff;
   display: flex;
   flex-direction: column;
@@ -23,7 +23,7 @@
 
 .item {
   width: 80%;
-  height: 20%;
+  height: 8%;
   border-radius: 27px;
   display: flex;
   justify-content: center;
@@ -31,7 +31,7 @@
   flex-direction: column;
   font-family: Inter;
   color: rgb(151, 151, 151);
-  margin-bottom: 10px;
+  
 }
 
 .screen-container {

@@ -1,12 +1,81 @@
-
 <div class="container">
-    
-    <div class="body">
-     <app-admin-nav></app-admin-nav>
-      <div class="screen-container">
-        <div class="screen">
-          
+  <div class="body">
+    <app-admin-nav></app-admin-nav>
+    <div class="screen-container">
+      <div class="screen">
+        <div class="add-user">
+          <form>
+            <div class="header"> Add session</div>
+            <div>
+              <label for="nom">Nom:</label>
+              <input
+                class="input"
+                type="text"
+                id="nom"
+                name="nom"
+                [(ngModel)]="nom"
+              />
+            </div>
+            <div>
+              <label for="age">Age:</label>
+              <input
+                class="input"
+                type="text"
+                id="age"
+                name="age"
+                [(ngModel)]="age"
+              />
+            </div>
+            <div>
+              <label for="cin">CIN:</label>
+              <input
+                class="input"
+                type="text"
+                id="cin"
+                name="cin"
+                [(ngModel)]="cin"
+              />
+            </div>
+            <div>
+              <label for="etat">État:</label>
+              <input
+                class="input"
+                type="text"
+                id="etat"
+                name="etat"
+                [(ngModel)]="etat"
+              />
+            </div>
+            <div>
+              <button class="add-button">Add</button>
+            </div>
+          </form>
+        </div>
+        <div class="user-list">
+          <table>
+            <caption>
+              Sessions
+            </caption>
+            <thead>
+              <tr>
+                <th scope="col">Nom</th>
+                <th scope="col">Etat</th>
+                <th scope="col">CIN</th>
+                <th scope="col">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let data of myTableCondidat" class="row">
+                <td>{{ data.Matricule }}</td>
+                <td>{{ data.Kilometrage }}</td>
+                <td>{{ data.Garage }}</td>
+                <td>Actions</td>
+              </tr>
+            </tbody>
+          </table>
+
+        </div>
       </div>
     </div>
   </div>
-  
+</div>
