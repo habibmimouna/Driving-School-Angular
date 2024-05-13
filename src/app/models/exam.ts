@@ -1,4 +1,9 @@
 export interface Exam{
-    Lieu:string
+    id?:number;
+    type:string
+    lieu:string;
+    clientId:number;
+    voitureId:number;
+
 
 }

@@ -5,7 +5,7 @@
       <div class="screen">
         <table>
           <caption>
-            Session
+            Candidats
           </caption>
           <thead>
             <tr>
@@ -15,10 +15,31 @@
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let data of myTableCondidat">
-              <td>{{ data.Matricule }}</td>
-              <td>{{ data.Kilometrage }}</td>
-              <td>{{ data.Garage }}</td>
+            <tr *ngFor="let data of usersList">
+              <td>{{ data.nom }}</td>
+              <td>{{ data.email }}</td>
+              <td>{{ data.cin }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="screen">
+        <table>
+          <caption>
+            Moniteurs
+          </caption>
+          <thead>
+            <tr>
+              <th scope="col">Nom</th>
+              <th scope="col">Email</th>
+              <th scope="col">Heures</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let moniteur of monitorsList">
+              <td>{{ moniteur.nom }}</td>
+              <td>{{ moniteur.email }}</td>
+              <td>{{ moniteur.heure_Effectue }}</td>
             </tr>
           </tbody>
         </table>
@@ -31,44 +52,15 @@
           <thead>
             <tr>
               <th scope="col">Matricule</th>
-              <th scope="col">Kilométrage</th>
               <th scope="col">Garage</th>
-              <th scope="col">Visite technique</th>
+              <th scope="col">Visite Technique</th>
             </tr>
           </thead>
           <tbody>
-            <!-- Use *ngFor to loop through myTableData and generate table rows -->
-            <tr *ngFor="let data of myTableData">
-              <!-- Use *ngFor to loop through each row's properties and generate table cells -->
-              <td>{{ data.Matricule }}</td>
-              <td>{{ data.Kilometrage }}</td>
-              <td>{{ data.Garage }}</td>
-              <td>{{ data.VisiteTechnique }}</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      <div class="screen">
-        <table>
-          <caption>
-            Session
-          </caption>
-          <thead>
-            <tr>
-              <th scope="col">Date</th>
-              <th scope="col">Duree</th>
-              <th scope="col">Candidat</th>
-              <th scope="col">Moniteur</th>
-            </tr>
-          </thead>
-          <tbody>
-            <!-- Use *ngFor to loop through myTableData and generate table rows -->
-            <tr *ngFor="let data of myTableSession">
-              <!-- Use *ngFor to loop through each row's properties and generate table cells -->
-              <td>{{ data.Matricule }}</td>
-              <td>{{ data.Kilometrage }}</td>
-              <td>{{ data.Garage }}</td>
-              <td>{{ data.VisiteTechnique }}</td>
+            <tr *ngFor="let data of carsList">
+              <td>{{ data.matricule }}</td>
+              <td>{{ data.garage }}</td>
+              <td>{{ data.dateVisit }}</td>
             </tr>
           </tbody>
         </table>

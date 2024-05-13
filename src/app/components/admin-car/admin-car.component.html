@@ -1,11 +1,153 @@
 <div class="container">
-    
-    <div class="body">
-     <app-admin-nav></app-admin-nav>
-      <div class="screen-container">
-        <div class="screen">
-          
+  <div class="body">
+    <app-admin-nav></app-admin-nav>
+    <div class="screen-container">
+      <div class="screen">
+        <div class="add-user">
+          <form>
+            <div class="header"> Ajouter Voiture</div>
+            <div>
+              <label for="matricule">Matricule:</label>
+              <input
+                class="input"
+                type="text"
+                id="matricule"
+                name="matricule"
+                [(ngModel)]="this.car.matricule"
+              />
+            </div>
+            <div>
+              <label for="kilometrage">Kilometrage:</label>
+              <input
+                class="input"
+                type="text"
+                id="kilometrage"
+                name="kilometrage"
+                [(ngModel)]="this.car.kilometrage"
+              />
+            </div>
+            <div>
+              <label for="garage">Garage:</label>
+              <input
+                class="input"
+                type="text"
+                id="garage"
+                name="garage"
+                [(ngModel)]="this.car.garage"
+              />
+            </div>
+            <div>
+              <label for="dateVisit">Date Visite:</label>
+              <input
+                class="input"
+                type="text"
+                id="dateVisit"
+                name="dateVisit"
+                [(ngModel)]="this.car.dateVisit"
+              />
+            </div>
+            <div>
+              <button class="add-button" (click)="addCar()">Ajouter</button>
+            </div>
+          </form>
+        </div>
+        <div class="user-list">
+          <table>
+            <caption>
+              Voitures
+            </caption>
+            <thead>
+              <tr>
+                <th scope="col">ID</th>
+                <th scope="col">matricule</th>
+                <th scope="col">kilometrage</th>
+                <th scope="col">Garage</th>
+                <th scope="col">Date Visit</th>
+                <th scope="col">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let car of carsList" class="row">
+                <td>{{ car.id }}</td>
+                <td>{{ car.matricule }}</td>
+                <td>{{ car.kilometrage }}</td>
+                <td>{{ car.garage }}</td>
+                <td>{{ car.dateVisit }}</td>
+
+                <td class="actions">
+                  <button class="button-40"
+                  (click)=" modifyCar(car)">
+                    <img
+                      src="../../../assets/modify.svg"
+                      width="20px"
+                      height="20px"
+                    />
+                  </button>
+                  <button class="delete-button" (click)=" deleteCar(car.id)">
+                    <img
+                      src="../../../assets/delete.svg"
+                      width="20px"
+                      height="20px"
+                    />
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+        </div>
       </div>
     </div>
   </div>
-  
+</div>
+<div *ngIf="selectedCar" class="popup-overlay">
+  <div class="popup">
+    <h2>Modify Monitor</h2>
+    <!-- Form fields for modifying Monitor details -->
+    <div>
+      <label for="matricule">Matricule:</label>
+      <input
+        class="input"
+        type="text"
+        id="matricule"
+        name="matricule"
+        [(ngModel)]="this.car.matricule"
+      />
+    </div>
+    <div>
+      <label for="kilometrage">Kilometrage:</label>
+      <input
+        class="input"
+        type="text"
+        id="kilometrage"
+        name="kilometrage"
+        [(ngModel)]="this.car.kilometrage"
+      />
+    </div>
+    <div>
+      <label for="garage">Garage:</label>
+      <input
+        class="input"
+        type="text"
+        id="garage"
+        name="garage"
+        [(ngModel)]="this.car.garage"
+      />
+    </div>
+    <div>
+      <label for="dateVisit">Date Visite:</label>
+      <input
+        class="input"
+        type="text"
+        id="dateVisit"
+        name="dateVisit"
+        [(ngModel)]="this.car.dateVisit"
+      />
+    </div>
+    <!-- Other input fields -->
+    <div>
+      <button (click)="closePopup()">Cancel</button>
+      <button (click)="updateCar()">Submit</button>
+    </div>
+  </div>
+</div>

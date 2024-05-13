@@ -1,8 +1,9 @@
 export interface Monitor{
-    _id?:string;
+    id?:number;
     nom:string;
-    role?:string;
-    Heure_effectue:string;
     salaire:string;
+    email:string;
+    password:string;
+    heure_Effectue:string;
 
 }

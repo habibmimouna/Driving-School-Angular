@@ -5,7 +5,7 @@
       <div class="screen">
         <div class="add-user">
           <form>
-            <div class="header"> Add Teacher</div>
+            <div class="header"> Ajouter Moniteur</div>
             <div>
               <label for="nom">Nom:</label>
               <input
@@ -13,41 +13,54 @@
                 type="text"
                 id="nom"
                 name="nom"
-                [(ngModel)]="nom"
+                [(ngModel)]="this.monitor.nom"
               />
             </div>
             <div>
-              <label for="age">Age:</label>
+              <label for="salaire">Salaire:</label>
               <input
                 class="input"
                 type="text"
-                id="age"
-                name="age"
-                [(ngModel)]="age"
+                id="salaire"
+                name="salaire"
+                [(ngModel)]="this.monitor.salaire"
               />
             </div>
             <div>
-              <label for="cin">CIN:</label>
+              <label for="email">email:</label>
               <input
                 class="input"
                 type="text"
-                id="cin"
-                name="cin"
-                [(ngModel)]="cin"
+                id="email"
+                name="email"
+                [(ngModel)]="this.monitor.email"
               />
             </div>
             <div>
-              <label for="etat">État:</label>
+              <label for="heure_Effectue">Heure Effectue</label>
               <input
                 class="input"
                 type="text"
-                id="etat"
-                name="etat"
-                [(ngModel)]="etat"
+                id="heure_Effectue"
+                name="heure_Effectue"
+                [(ngModel)]="this.monitor.heure_Effectue"
+                required
               />
             </div>
             <div>
-              <button class="add-button">Add</button>
+              <label for="password">Password:</label>
+              <input
+                class="input"
+                type="password"
+                id="password"
+                name="password"
+                [(ngModel)]="this.monitor.password"
+                required
+              />
+            </div>
+            <!-- Other input fields -->
+            <div>
+              <button class="add-button" (click)="addMonitor()">Add</button>
             </div>
           </form>
         </div>
@@ -58,24 +71,105 @@
             </caption>
             <thead>
               <tr>
+                <th scope="col">ID</th>
                 <th scope="col">Nom</th>
-                <th scope="col">Etat</th>
-                <th scope="col">CIN</th>
+                <th scope="col">Email</th>
+                <th scope="col">Heure</th>
                 <th scope="col">Actions</th>
               </tr>
             </thead>
             <tbody>
-              <tr *ngFor="let data of myTableCondidat" class="row">
-                <td>{{ data.Matricule }}</td>
-                <td>{{ data.Kilometrage }}</td>
-                <td>{{ data.Garage }}</td>
-                <td>Actions</td>
+              <tr *ngFor="let moniteur of monitorsList" class="row">
+                <td>{{ moniteur.id }}</td>
+                <td>{{ moniteur.nom }}</td>
+                <td>{{ moniteur.email }}</td>
+                <td>{{ moniteur.heure_Effectue }}</td>
+                <td class="actions">
+                  <button class="button-40"
+                  (click)=" modifyMonitor(moniteur)">
+                    <img
+                      src="../../../assets/modify.svg"
+                      width="20px"
+                      height="20px"
+                    />
+                  </button>
+                  <button class="delete-button" (click)=" deleteMonitor(moniteur.id)">
+                    <img
+                      src="../../../assets/delete.svg"
+                      width="20px"
+                      height="20px"
+                    />
+                  </button>
+                </td>
               </tr>
             </tbody>
           </table>
 
         </div>
       </div>
+    </div>
+  </div>
+</div>
+<div *ngIf="selectedMonitor" class="popup-overlay">
+  <div class="popup">
+    <h2>Modify Monitor</h2>
+    <!-- Form fields for modifying Monitor details -->
+    <div>
+      <label for="nom">Nom:</label>
+      <input
+        class="input"
+        type="text"
+        id="nom"
+        name="nom"
+        [(ngModel)]="this.monitor.nom"
+      />
+    </div>
+    <div>
+      <label for="salaire">Salaire:</label>
+      <input
+        class="input"
+        type="text"
+        id="salaire"
+        name="salaire"
+        [(ngModel)]="this.monitor.salaire"
+      />
+    </div>
+    <div>
+      <label for="email">email:</label>
+      <input
+        class="input"
+        type="text"
+        id="email"
+        name="email"
+        [(ngModel)]="this.monitor.email"
+      />
+    </div>
+    <div>
+      <label for="heure_Effectue">Heure Effectue</label>
+      <input
+        class="input"
+        type="text"
+        id="heure_Effectue"
+        name="heure_Effectue"
+        [(ngModel)]="this.monitor.heure_Effectue"
+        required
+      />
+    </div>
+    <div>
+      <label for="password">Password:</label>
+      <input
+        class="input"
+        type="password"
+        id="password"
+        name="password"
+        [(ngModel)]="this.monitor.password"
+        required
+      />
+    </div>
+    <!-- Other input fields -->
+    <div>
+      <button (click)="closePopup()">Cancel</button>
+      <button (click)="updateMonitor()">Submit</button>
     </div>
   </div>
 </div>

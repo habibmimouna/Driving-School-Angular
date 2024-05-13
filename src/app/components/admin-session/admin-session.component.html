@@ -7,47 +7,67 @@
           <form>
             <div class="header"> Add session</div>
             <div>
-              <label for="nom">Nom:</label>
+              <label for="date">Date:</label>
               <input
                 class="input"
                 type="text"
-                id="nom"
-                name="nom"
-                [(ngModel)]="nom"
+                id="date"
+                name="date"
+                [(ngModel)]="this.session.date"
               />
             </div>
             <div>
-              <label for="age">Age:</label>
+              <label for="duree">Durée:</label>
               <input
                 class="input"
                 type="text"
-                id="age"
-                name="age"
-                [(ngModel)]="age"
+                id="duree"
+                name="duree"
+                [(ngModel)]="this.session.duree"
               />
             </div>
             <div>
-              <label for="cin">CIN:</label>
+              <label for="type">type:</label>
               <input
                 class="input"
                 type="text"
-                id="cin"
-                name="cin"
-                [(ngModel)]="cin"
+                id="type"
+                name="type"
+                [(ngModel)]="this.session.type"
               />
             </div>
             <div>
-              <label for="etat">État:</label>
+              <label for="clientId">ID candidat:</label>
               <input
                 class="input"
                 type="text"
-                id="etat"
-                name="etat"
-                [(ngModel)]="etat"
+                id="clientId"
+                name="clientId"
+                [(ngModel)]="this.session.clientId"
               />
             </div>
             <div>
-              <button class="add-button">Add</button>
+              <label for="moniteurId">ID moniteur:</label>
+              <input
+                class="input"
+                type="text"
+                id="moniteurId"
+                name="moniteurId"
+                [(ngModel)]="this.session.moniteurId"
+              />
+            </div>
+            <div>
+              <label for="voitureId">ID Voiture:</label>
+              <input
+                class="input"
+                type="text"
+                id="voitureId"
+                name="voitureId"
+                [(ngModel)]="this.session.voitureId"
+              />
+            </div>
+            <div>
+              <button class="add-button" (click)="addSession()">Ajouter</button>
             </div>
           </form>
         </div>
@@ -58,18 +78,40 @@
             </caption>
             <thead>
               <tr>
-                <th scope="col">Nom</th>
-                <th scope="col">Etat</th>
-                <th scope="col">CIN</th>
+                <th scope="col">ID</th>
+                <th scope="col">Type</th>
+                <th scope="col">Date</th>
+                <th scope="col">Durée</th>
+                <th scope="col">ID Candidat</th>
+                <th scope="col">ID Moniteur</th>
                 <th scope="col">Actions</th>
               </tr>
             </thead>
             <tbody>
-              <tr *ngFor="let data of myTableCondidat" class="row">
-                <td>{{ data.Matricule }}</td>
-                <td>{{ data.Kilometrage }}</td>
-                <td>{{ data.Garage }}</td>
-                <td>Actions</td>
+              <tr *ngFor="let data of sessionsList" class="row">
+                <td>{{ data.id }}</td>
+                <td>{{ data.type }}</td>
+                <td>{{ data.date }}</td>
+                <td>{{ data.duree }}</td>
+                <td>{{ data.clientId }}</td>
+                <td>{{ data.moniteurId }}</td>
+                <td class="actions">
+                  <button class="button-40"
+                  (click)=" modifySession(session)">
+                    <img
+                      src="../../../assets/modify.svg"
+                      width="20px"
+                      height="20px"
+                    />
+                  </button>
+                  <button class="delete-button" (click)=" deleteSession(data.id)">
+                    <img
+                      src="../../../assets/delete.svg"
+                      width="20px"
+                      height="20px"
+                    />
+                  </button>
+                </td>
               </tr>
             </tbody>
           </table>
@@ -79,3 +121,76 @@
     </div>
   </div>
 </div>
+
+<div *ngIf="selectedSession" class="popup-overlay">
+  <div class="popup">
+    <h2>Modify Monitor</h2>
+    <!-- Form fields for modifying Monitor details -->
+    <div>
+      <label for="date">Date:</label>
+      <input
+        class="input"
+        type="text"
+        id="date"
+        name="date"
+        [(ngModel)]="this.session.date"
+      />
+    </div>
+    <div>
+      <label for="duree">Durée:</label>
+      <input
+        class="input"
+        type="text"
+        id="duree"
+        name="duree"
+        [(ngModel)]="this.session.duree"
+      />
+    </div>
+    <div>
+      <label for="type">type:</label>
+      <input
+        class="input"
+        type="text"
+        id="type"
+        name="type"
+        [(ngModel)]="this.session.type"
+      />
+    </div>
+    <div>
+      <label for="clientId">ID candidat:</label>
+      <input
+        class="input"
+        type="text"
+        id="clientId"
+        name="clientId"
+        [(ngModel)]="this.session.clientId"
+      />
+    </div>
+    <div>
+      <label for="moniteurId">ID moniteur:</label>
+      <input
+        class="input"
+        type="text"
+        id="moniteurId"
+        name="moniteurId"
+        [(ngModel)]="this.session.moniteurId"
+      />
+    </div>
+    <div>
+      <label for="voitureId">ID Voiture:</label>
+      <input
+        class="input"
+        type="text"
+        id="voitureId"
+        name="voitureId"
+        [(ngModel)]="this.session.voitureId"
+      />
+    </div>
+    <!-- Other input fields -->
+    <div>
+      <button (click)="closePopup()">Cancel</button>
+      <button (click)="updateSession()">Submit</button>
+    </div>
+  </div>
+</div>
+

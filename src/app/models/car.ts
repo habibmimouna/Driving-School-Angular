@@ -1,6 +1,8 @@
-export interface User{
+export interface Car{
+    id?:number;
     matricule:string;
-    kilométrage:string;
-    date_viste_technique:string;
+    kilometrage:string;
     garage:string;
+    dateVisit:string;
+    
 }

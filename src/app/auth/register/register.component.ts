@@ -12,13 +12,12 @@ import { RouterLink } from '@angular/router';
 })
 export class RegisterComponent {
   user: User = {
-    cin:"",
-    role: 'USER',
+    cin:'',
     email: '',
     password: '',
-    phone: '',
     age:'',
-    state:'',
+    etat_Condidat:'',
+    nom:''
   };
   onSubmit(){
 

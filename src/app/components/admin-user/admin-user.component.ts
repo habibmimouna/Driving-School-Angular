@@ -1,7 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { AdminNavComponent } from '../admin-nav/admin-nav.component';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { User } from '../../models/user';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-admin-user',
@@ -11,35 +13,76 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './admin-user.component.css',
 })
 export class AdminUserComponent {
-  nom: string = '';
-  age: string = '';
-  cin: string = '';
-  etat: string = '';
-  myTableCondidat: TableRow[] = [
-    {
-      Matricule: 'mohamed yessine',
-      Kilometrage: '12456732 ',
-      Garage: 'code',
-      VisiteTechnique: 'houssem saleh',
-    },
-    {
-      Matricule: 'saleh jaza',
-      Kilometrage: '10325463',
-      Garage: 'conduite',
-      VisiteTechnique: 'ala chatbouri',
-    },
-    {
-      Matricule: 'olfa hassine',
-      Kilometrage: '10243790',
-      Garage: 'code',
-      VisiteTechnique: 'yessine ali',
-    },
-  ];
-}
+  usersList: User[] = [];
+  selectedUser: User | null = null;
 
-interface TableRow {
-  Matricule: string;
-  Kilometrage: string;
-  Garage: string;
-  VisiteTechnique: string;
+  user: User = {
+    age: '',
+    nom: '',
+    email: '',
+    password: '',
+    cin: '',
+    etat_Condidat: '',
+  };
+
+  constructor(private userService: UserService) {}
+
+  ngOnInit(): void {
+    this.userService.getUsersList().subscribe((data) => {
+      console.log('Login successful', data);
+      this.usersList = data;
+    });
+  }
+
+  addUser() {
+    if (
+      !this.user.age ||
+      !this.user.nom ||
+      !this.user.email ||
+      !this.user.password ||
+      !this.user.cin ||
+      !this.user.etat_Condidat
+    ) {
+      window.alert('Please fill in all user attributes.');
+      return;
+    }
+    this.userService.createUser(this.user).subscribe(
+      (data) => {
+        console.error('user made with success:', data);
+        window.alert('Candidat crée avec succée  :) !!');
+        window.location.reload();
+      },
+      (error) => {
+        console.error('Error making reservation:', error);
+      }
+    );
+  }
+  deleteUser(id: number | undefined) {
+    if (id) {
+      this.userService.deleteUser(id).subscribe(() => {
+        window.alert('candidat supprimer avec succée !');
+        window.location.reload();
+      });
+    }
+  }
+  modifyUser(user: User) {
+    this.selectedUser = user;
+  }
+  updateUser(): void {
+    if (this.selectedUser) {
+      if (this.selectedUser.id) {
+        this.user.id = this.selectedUser.id;
+        this.userService
+          .updateUser(this.selectedUser.id, this.user)
+          .subscribe((user) => {
+            console.log(user);
+          });
+      }
+    }
+    this.closePopup();
+    window.location.reload()
+  }
+  closePopup(): void {
+    this.selectedUser = null;
+  }
 }

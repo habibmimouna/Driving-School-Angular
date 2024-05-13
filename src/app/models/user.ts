@@ -1,11 +1,10 @@
 export interface User{
-    _id?:string;
-    cin:string;
-    email:string;
-    role?:string;
-    password:string;
-    phone:string;
-    state?:string;
+    id?:number;
     age:string;
-
+    nom:string;
+    email:string;
+    password:string;
+    cin:string;
+    etat_Condidat?:string;
+    
 }

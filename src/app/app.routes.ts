@@ -8,6 +8,7 @@ import { AdminUserComponent } from './components/admin-user/admin-user.component
 import { AdminMonitorComponent } from './components/admin-monitor/admin-monitor.component';
 import { AdminSessionComponent } from './components/admin-session/admin-session.component';
 import { AdminCarComponent } from './components/admin-car/admin-car.component';
+import { AdminExamComponent } from './components/admin-exam/admin-exam.component';
 
 export const routes: Routes = [
     { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -20,6 +21,7 @@ export const routes: Routes = [
     { path: 'admin-dashboard/moniteur', component: AdminMonitorComponent },
     { path: 'admin-dashboard/car', component: AdminCarComponent },
     { path: 'admin-dashboard/session', component:AdminSessionComponent},
+    { path: 'admin-dashboard/exam', component:AdminExamComponent},
 
     
 ];

@@ -1,0 +1,155 @@
+<div class="container">
+    <div class="body">
+      <app-admin-nav></app-admin-nav>
+      <div class="screen-container">
+        <div class="screen">
+          <div class="add-user">
+            <form>
+              <div class="header"> Ajouter Examen</div>
+              <div>
+                <label for="type">Type:</label>
+                <input
+                  class="input"
+                  type="text"
+                  id="type"
+                  name="type"
+                  [(ngModel)]="this.exam.type"
+                />
+              </div>
+              <div>
+                <label for="lieu">Lieu:</label>
+                <input
+                  class="input"
+                  type="text"
+                  id="lieu"
+                  name="lieu"
+                  [(ngModel)]="this.exam.lieu"
+                />
+              </div>
+              <div>
+                <label for="clientId">ID Candidat:</label>
+                <input
+                  class="input"
+                  type="text"
+                  id="clientId"
+                  name="clientId"
+                  [(ngModel)]="this.exam.clientId"
+                />
+              </div>
+              <div>
+                <label for="voitureId">ID voiture :</label>
+                <input
+                  class="input"
+                  type="text"
+                  id="voitureId"
+                  name="voitureId"
+                  [(ngModel)]="this.exam.voitureId"
+                  required
+                />
+              </div>
+              
+              <div>
+                <button class="add-button" (click)="addExam()">Ajouter</button>
+              </div>
+            </form>
+          </div>
+          <div class="user-list">
+            <table>
+              <caption>
+                Examens
+              </caption>
+              <thead>
+                <tr>
+                  <th scope="col">ID</th>
+                  <th scope="col">Type</th>
+                  <th scope="col">ID Candidat</th>
+                  <th scope="col">ID voiture</th>
+                  <th scope="col">actions</th>
+                  
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let moniteur of monitorsList" class="row">
+                  <td>{{ moniteur.id }}</td>
+                  <td>{{ moniteur.type }}</td>
+                  <td>{{ moniteur.clientId }}</td>
+                  <td>{{ moniteur.voitureId }}</td>
+                  <td class="actions">
+                    <button class="button-40"
+                    (click)=" modifyExam(moniteur)">
+                      <img
+                        src="../../../assets/modify.svg"
+                        width="20px"
+                        height="20px"
+                      />
+                    </button>
+                    <button class="delete-button" (click)=" deleteExam(moniteur.id)">
+                      <img
+                        src="../../../assets/delete.svg"
+                        width="20px"
+                        height="20px"
+                      />
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+  
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="selectedExam" class="popup-overlay">
+    <div class="popup">
+      <h2>Modify Exam</h2>
+      <!-- Form fields for modifying Monitor details -->
+      <div>
+        <label for="type">Type:</label>
+        <input
+          class="input"
+          type="text"
+          id="type"
+          name="type"
+          [(ngModel)]="this.exam.type"
+        />
+      </div>
+      <div>
+        <label for="lieu">Lieu:</label>
+        <input
+          class="input"
+          type="text"
+          id="lieu"
+          name="lieu"
+          [(ngModel)]="this.exam.lieu"
+        />
+      </div>
+      <div>
+        <label for="clientId">ID Candidat:</label>
+        <input
+          class="input"
+          type="text"
+          id="clientId"
+          name="clientId"
+          [(ngModel)]="this.exam.clientId"
+        />
+      </div>
+      <div>
+        <label for="voitureId">ID voiture :</label>
+        <input
+          class="input"
+          type="text"
+          id="voitureId"
+          name="voitureId"
+          [(ngModel)]="this.exam.voitureId"
+          required
+        />
+      </div>
+      <!-- Other input fields -->
+      <div>
+        <button (click)="closePopup()">Cancel</button>
+        <button (click)="updateExam()">Submit</button>
+      </div>
+    </div>
+  </div>
+  
