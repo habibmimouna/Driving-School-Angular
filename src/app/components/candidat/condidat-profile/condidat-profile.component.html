@@ -1,0 +1,59 @@
+<app-condidat-navbar></app-condidat-navbar>
+<div class="container">
+  <div class="profile">
+    <div class="profile-header">Tes Coordonnée:</div>
+    <div class="credentials">
+      <div class="label">
+        Nom:
+        <div class="data">{{ user.nom }}</div>
+      </div>
+      <div class="label">
+        Age:
+        <div class="data">{{ user.age }} ans</div>
+      </div>
+      <div class="label">
+        CIN:
+        <div class="data">{{ user.cin }}</div>
+      </div>
+      <div class="label">
+        Email:
+        <div class="data">{{ user.email }}</div>
+      </div>
+      <div class="label">
+        Etat:
+        <div class="data">{{ user.etat_Condidat }}</div>
+      </div>
+    </div>
+    <div class="profile-desc">
+      Excellent !! Vous êtes à la phase de<div class="etat">{{ user.etat_Condidat }}</div> vous êtes presque prêt à
+      passer l'examen et à obtenir votre permis.
+    </div>
+    <div class="log-butt">
+        <button class="button-27" >Logout</button>
+    </div>
+  </div>
+  <div class="old-sessions">
+    <table>
+      <caption>
+        Session Passée
+      </caption>
+      <thead>
+        <tr>
+          <th scope="col">Type</th>
+          <th scope="col">Date</th>
+          <th scope="col">Durée</th>
+          <th scope="col">ID Moniteur</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let data of pastSessions" class="row">
+          <td>{{ data.type }}</td>
+          <td>{{ data.date }}</td>
+          <td>{{ data.duree }}</td>
+
+          <td>{{ data.moniteurId }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

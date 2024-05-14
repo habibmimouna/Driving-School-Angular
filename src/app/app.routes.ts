@@ -11,21 +11,29 @@ import { AdminCarComponent } from './components/admin-car/admin-car.component';
 import { AdminExamComponent } from './components/admin-exam/admin-exam.component';
 import { CondidatHomeComponent } from './components/candidat/condidat-home/condidat-home.component';
 import { ContactComponent } from './components/contact/contact.component';
+import { CondidatSessionComponent } from './components/candidat/condidat-session/condidat-session.component';
+import { CondidatProfileComponent } from './components/candidat/condidat-profile/condidat-profile.component';
+import { CondidatExamComponent } from './components/candidat/condidat-exam/condidat-exam.component';
+import { MoniteurProfileComponent } from './components/moniteur/moniteur-profile/moniteur-profile.component';
+import { MoniteurSessionComponent } from './components/moniteur/moniteur-session/moniteur-session.component';
 
 export const routes: Routes = [
-    { path: '', redirectTo: 'home', pathMatch: 'full' },
-    { path: 'auth/signup', component: RegisterComponent },
-    { path: 'auth/login', component: LoginComponent },
-    { path: 'home', component: HomeComponent },
-    { path: 'about', component: AboutComponent },
-    { path: 'contact', component: ContactComponent },
-    { path: 'admin-dashboard', component: AdminDashComponent },
-    { path: 'admin-dashboard/user', component: AdminUserComponent },
-    { path: 'admin-dashboard/moniteur', component: AdminMonitorComponent },
-    { path: 'admin-dashboard/car', component: AdminCarComponent },
-    { path: 'admin-dashboard/session', component:AdminSessionComponent},
-    { path: 'admin-dashboard/exam', component:AdminExamComponent},
-    {path:'candidat-home',component:CondidatHomeComponent}
-
-    
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: 'auth/signup', component: RegisterComponent },
+  { path: 'auth/login', component: LoginComponent },
+  { path: 'home', component: HomeComponent },
+  { path: 'about', component: AboutComponent },
+  { path: 'contact', component: ContactComponent },
+  { path: 'admin-dashboard', component: AdminDashComponent },
+  { path: 'admin-dashboard/user', component: AdminUserComponent },
+  { path: 'admin-dashboard/moniteur', component: AdminMonitorComponent },
+  { path: 'admin-dashboard/car', component: AdminCarComponent },
+  { path: 'admin-dashboard/session', component: AdminSessionComponent },
+  { path: 'admin-dashboard/exam', component: AdminExamComponent },
+  { path: 'candidat-home', component: CondidatHomeComponent },
+  { path: 'candidat-sessions', component: CondidatSessionComponent },
+  { path: 'candidat-profile', component: CondidatProfileComponent },
+  { path: 'candidat-exam', component: CondidatExamComponent },
+  { path: 'moniteur-profil', component: MoniteurProfileComponent },
+  { path: 'moniteur-sessions', component: MoniteurSessionComponent },
 ];

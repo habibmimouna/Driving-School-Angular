@@ -1,19 +1,18 @@
-import { Component } from '@angular/core';
-import { CondidatNavbarComponent } from '../condidat-navbar/condidat-navbar.component';
-import { SessionService } from '../../../services/session.service';
-import { Session } from '../../../models/session';
-import { User } from '../../../models/user';
 import { CommonModule } from '@angular/common';
+import { Component } from '@angular/core';
+import { MoniteurNavbarComponent } from '../moniteur-navbar/moniteur-navbar.component';
+import { Session } from '../../../models/session';
+import { SessionService } from '../../../services/session.service';
+import { User } from '../../../models/user';
 
 @Component({
-  selector: 'app-condidat-session',
+  selector: 'app-moniteur-session',
   standalone: true,
-  imports: [CondidatNavbarComponent,CommonModule],
-  templateUrl: './condidat-session.component.html',
-  styleUrl: './condidat-session.component.css',
+  imports: [CommonModule,MoniteurNavbarComponent],
+  templateUrl: './moniteur-session.component.html',
+  styleUrl: './moniteur-session.component.css'
 })
-export class CondidatSessionComponent {
-  userSessions: Session[] = [];
+export class MoniteurSessionComponent { userSessions: Session[] = [];
   selectedSession:Session|null =null;
   currentUser:User= {
     id:33,

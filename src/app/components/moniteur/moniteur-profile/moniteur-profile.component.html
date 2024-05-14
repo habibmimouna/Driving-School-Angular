@@ -1,0 +1,109 @@
+<app-moniteur-navbar></app-moniteur-navbar>
+<div class="container">
+  <div class="profile">
+    <div class="profile-header">Tes Coordonnée:</div>
+    <div class="credentials">
+      <div class="label">
+        Nom:
+        <div class="data">{{ user.nom }}</div>
+      </div>
+      <div class="label">
+        Age:
+        <div class="data">{{ user.age }} ans</div>
+      </div>
+      <div class="label">
+        CIN:
+        <div class="data">{{ user.cin }}</div>
+      </div>
+      <div class="label">
+        Email:
+        <div class="data">{{ user.email }}</div>
+      </div>
+      <div class="label">
+        Etat:
+        <div class="data">{{ user.etat_Condidat }}</div>
+      </div>
+    </div>
+    <div class="log-butt">
+        <button class="button-27" >Logout</button>
+    </div>
+  </div>
+  <div class="old-sessions">
+    <table>
+      <caption>
+        <div>Mes Voitures</div>
+        <div ><button class="add-car" (click)="openPop()">Ajouter</button></div>
+        
+      </caption>
+      <thead>
+        <tr>
+          <th scope="col">Matricule</th>
+          <th scope="col">Kilométrage</th>
+          <th scope="col">Garage</th>
+          <th scope="col">Date visite</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let data of pastSessions" class="row">
+          <td>{{ data.type }}</td>
+          <td>{{ data.date }}</td>
+          <td>{{ data.duree }}</td>
+
+          <td>{{ data.moniteurId }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<div *ngIf="this.popup" class="popup-overlay">
+    <div class="popup">
+      <h2>Modify Monitor</h2>
+      <!-- Form fields for modifying Monitor details -->
+      <div>
+        <label for="matricule">Matricule:</label>
+        <input
+          class="input"
+          type="text"
+          id="matricule"
+          name="matricule"
+          [(ngModel)]="this.car.matricule"
+        />
+      </div>
+      <div>
+        <label for="kilometrage">Kilometrage:</label>
+        <input
+          class="input"
+          type="text"
+          id="kilometrage"
+          name="kilometrage"
+          [(ngModel)]="this.car.kilometrage"
+        />
+      </div>
+      <div>
+        <label for="garage">Garage:</label>
+        <input
+          class="input"
+          type="text"
+          id="garage"
+          name="garage"
+          [(ngModel)]="this.car.garage"
+        />
+      </div>
+      <div>
+        <label for="dateVisit">Date Visite:</label>
+        <input
+          class="input"
+          type="text"
+          id="dateVisit"
+          name="dateVisit"
+          [(ngModel)]="this.car.dateVisit"
+        />
+      </div>
+      <!-- Other input fields -->
+      <div>
+        <button (click)="closePopup()">Cancel</button>
+        <button (click)="addCar()">Submit</button>
+      </div>
+    </div>
+  </div>
+  

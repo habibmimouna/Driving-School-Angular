@@ -1,4 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
 body{
-    background-color: rgba(240, 240, 240, 0.833);
+   
+    background-image: url("./assets/backgroung4.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: rgba(0, 0, 0, 0.5);
+    
 }

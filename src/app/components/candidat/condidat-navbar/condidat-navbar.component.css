@@ -23,8 +23,8 @@
 
 .navbar li a:hover {
     background-color: white;
-    border-bottom: 2px solid rgb(84, 104, 169);
-    color: rgb(84, 104, 169);
+    border-bottom: 2px solid orange;
+    color: orange;
    
   
 }
