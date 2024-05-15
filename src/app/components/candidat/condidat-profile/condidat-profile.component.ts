@@ -8,36 +8,41 @@ import { SessionService } from '../../../services/session.service';
 @Component({
   selector: 'app-condidat-profile',
   standalone: true,
-  imports: [CondidatNavbarComponent,CommonModule],
+  imports: [CondidatNavbarComponent, CommonModule],
   templateUrl: './condidat-profile.component.html',
-  styleUrl: './condidat-profile.component.css'
+  styleUrl: './condidat-profile.component.css',
 })
 export class CondidatProfileComponent {
-  pastSessions:Session[]=[]
+  pastSessions: Session[] = [];
   today = new Date();
-  user: User = {
-    id:33,
-    cin:'14013678',
-    email: 'habib@gmail.com',
+  currentUser: User = {
+    id: 0,
+    cin: '',
+    email: '',
     password: '',
-    age:'23',
-    etat_Condidat:'Conduite',
-    nom:'habib mimouna'
+    age: '',
+    etat_Condidat: '',
+    nom: '',
   };
-  constructor(private sessionService:SessionService){}
+  constructor(private sessionService: SessionService) {}
   ngOnInit(): void {
+    let User = localStorage.getItem('currentUser');
 
+    if (User) {
+      const jsonObject = JSON.parse(User);
+      this.currentUser = jsonObject;
+      console.log(this.currentUser);
+    }
     this.sessionService.getSessionsList().subscribe((sessionsList) => {
       sessionsList.map((session) => {
-        if (session.clientId==this.user.id && new Date(session.date) > this.today) {
-          this.pastSessions.push(session)
+        if (
+          session.clientId == this.currentUser.id &&
+          new Date(session.date) < this.today
+        ) {
+          this.pastSessions.push(session);
         }
       });
-      console.log(this.pastSessions);
-    }
-    
-    
-  );
+      console.log("hello",this.pastSessions);
+    });
   }
-
 }

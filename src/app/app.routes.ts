@@ -18,7 +18,7 @@ import { MoniteurProfileComponent } from './components/moniteur/moniteur-profile
 import { MoniteurSessionComponent } from './components/moniteur/moniteur-session/moniteur-session.component';
 
 export const routes: Routes = [
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: '', redirectTo: 'auth/login', pathMatch: 'full' },
   { path: 'auth/signup', component: RegisterComponent },
   { path: 'auth/login', component: LoginComponent },
   { path: 'home', component: HomeComponent },

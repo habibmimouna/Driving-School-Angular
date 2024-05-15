@@ -1,6 +1,30 @@
 <app-condidat-navbar></app-condidat-navbar>
 <div class="container">
-    <div class="My-sessions">
-
+  <div class="My-sessions">
+    <div class="cour1" [ngClass]="{cour11:currentUser.etat_Condidat === 'Code' || currentUser.etat_Condidat === 'Conduite'}"> 
+      <div class="step-number">1st<div class="step">STEP</div></div>
+      <div class="desc"> Code Courses</div>
+      <div class="hours">Hours<div class="nbr-hours">{{this.codeHours}}/18</div></div>
     </div>
+
+    <div class="test1" [ngClass]="{ test11: currentUser.etat_Condidat === 'Conduite' }"
+    >
+      <div class="step-number">Code<div class="step">Test</div></div>
+      <div class="desc"> {{this.firstTestResult}}</div>
+      <div class="hours">{{this.firstTest}}</div>
+      
+    </div>
+    <div class="cour2" [ngClass]="{ cour22: currentUser.etat_Condidat === 'Conduite' }"
+    >
+      <div class="step-number">2st<div class="step">STEP</div></div>
+      <div class="desc">Driving Lessons</div>
+      <div class="hours">Hours<div class="nbr-hours">/24</div></div>
+    </div>
+    <div class="test2"  [ngClass]="{ test22: currentUser.etat_Condidat === 'Permis' }"
+    >
+      <div class="step-number">Code<div class="step">Test</div></div>
+      <div class="desc"> {{this.secondTestResult}}</div>
+      <div class="hours">Not Yet</div>
+    </div>
+  </div>
 </div>

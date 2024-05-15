@@ -5,32 +5,30 @@
     <div class="credentials">
       <div class="label">
         Nom:
-        <div class="data">{{ user.nom }}</div>
+        <div class="data">{{ currentUser.nom }}</div>
       </div>
       <div class="label">
         Age:
-        <div class="data">{{ user.age }} ans</div>
+        <div class="data">{{ currentUser.age }} ans</div>
       </div>
       <div class="label">
         CIN:
-        <div class="data">{{ user.cin }}</div>
+        <div class="data">{{ currentUser.cin }}</div>
       </div>
       <div class="label">
         Email:
-        <div class="data">{{ user.email }}</div>
+        <div class="data">{{ currentUser.email }}</div>
       </div>
       <div class="label">
         Etat:
-        <div class="data">{{ user.etat_Condidat }}</div>
+        <div class="data">{{ currentUser.etat_Condidat }}</div>
       </div>
     </div>
     <div class="profile-desc">
-      Excellent !! Vous êtes à la phase de<div class="etat">{{ user.etat_Condidat }}</div> vous êtes presque prêt à
+      Excellent !! Vous êtes à la phase de<div class="etat">{{ currentUser.etat_Condidat }}</div> vous êtes presque prêt à
       passer l'examen et à obtenir votre permis.
     </div>
-    <div class="log-butt">
-        <button class="button-27" >Logout</button>
-    </div>
+    
   </div>
   <div class="old-sessions">
     <table>

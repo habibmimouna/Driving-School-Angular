@@ -33,9 +33,9 @@ export class UserService {
     return this.httpClient.put(`${this.baseURL}/${id}`, user);
   }
 
-  getUserByEmail(email: string): Observable<User | undefined> {
+  getUserByEmail(email: string): Observable<User | null> {
     return this.getUsersList().pipe(
-      map((users) => users.find((user) => user.email === email))
+      map((users) => users.find((user) => user.email === email) || null)
     );
   }
 

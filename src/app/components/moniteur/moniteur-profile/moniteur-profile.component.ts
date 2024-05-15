@@ -17,17 +17,18 @@ import { CarService } from '../../../services/car.service';
 })
 export class MoniteurProfileComponent {
   pastSessions: Session[] = [];
+  carsList:Car[]=[]
   newCar:Car|null=null
   popup:boolean=false
   today = new Date();
-  user: User = {
-    id: 33,
-    cin: '14013678',
-    email: 'habib@gmail.com',
+  currentUser: User = {
+    id: 0,
+    cin: '',
+    email: '',
     password: '',
-    age: '23',
-    etat_Condidat: 'Conduite',
-    nom: 'habib mimouna',
+    age: '',
+    etat_Condidat: '',
+    nom: '',
   };
   car: Car = {
     matricule: '',
@@ -40,10 +41,20 @@ export class MoniteurProfileComponent {
     private carService: CarService
   ) {}
   ngOnInit(): void {
+    let User = localStorage.getItem('currentUser');
+
+    if (User) {
+      const jsonObject = JSON.parse(User);
+      this.currentUser = jsonObject;
+      console.log(this.currentUser);
+    }
+    this.carService.getCarsList().subscribe((carsList)=>{
+      this.carsList=carsList
+    })
     this.sessionService.getSessionsList().subscribe((sessionsList) => {
       sessionsList.map((session) => {
         if (
-          session.clientId == this.user.id &&
+          session.clientId == this.currentUser.id &&
           new Date(session.date) > this.today
         ) {
           this.pastSessions.push(session);

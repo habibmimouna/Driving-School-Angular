@@ -1,48 +1,119 @@
 <app-condidat-navbar></app-condidat-navbar>
 <div class="container">
-    <div class="My-sessions">
-        <table>
-            <caption>
-              Mes sessions
-            </caption>
-            <thead>
-              <tr>
-                <th scope="col">ID</th>
-                <th scope="col">Type</th>
-                <th scope="col">Date</th>
-                <th scope="col">Durée</th>
-                <th scope="col">ID Moniteur</th>
-                <th scope="col">Actions</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr *ngFor="let data of userSessions" class="row">
-                <td>{{ data.id }}</td>
-                <td>{{ data.type }}</td>
-                <td>{{ data.date }}</td>
-                <td>{{ data.duree }}</td>
-                
-                <td>{{ data.moniteurId }}</td>
-                <td class="actions">
-                  <button class="button-40"
-                  (click)=" modifySession(session)">
-                    <img
-                      src="../../../assets/modify.svg"
-                      width="20px"
-                      height="20px"
-                    />
-                  </button>
-                  <button class="delete-button" (click)=" deleteSession(data.id)">
-                    <img
-                      src="../../../assets/delete.svg"
-                      width="20px"
-                      height="20px"
-                    />
-                  </button>
-                </td>
-              </tr>
-            </tbody>
-          </table>
+  <div class="My-sessions">
+    <div class="table-header"></div>
+    <table>
+      <caption>
+        My sessions
+      </caption>
 
+      <thead>
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Type</th>
+          <th scope="col">Date</th>
+          <th scope="col">Duration</th>
+          <th scope="col">ID Moniteur</th>
+          <th scope="col">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let data of userSessions" class="row">
+          <td>{{ data.id }}</td>
+          <td>{{ data.type }}</td>
+          <td>{{ data.date }}</td>
+          <td>{{ data.duree }}</td>
+
+          <td>{{ data.moniteurId }}</td>
+          <td class="actions">
+            <button class="button-40" (click)="modifySession(session)">
+              <img
+                src="../../../assets/modify.svg"
+                width="20px"
+                height="20px"
+              />
+            </button>
+            <button class="delete-button" (click)="deleteSession(data.id)">
+              <img
+                src="../../../assets/delete.svg"
+                width="20px"
+                height="20px"
+              />
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<div *ngIf="popup" class="popup-overlay">
+  <div class="popup">
+    <h2>Modify Monitor</h2>
+    <!-- Form fields for modifying Monitor details -->
+    <div>
+      <label for="date">Date:</label>
+      <input
+        class="input"
+        type="text"
+        id="date"
+        name="date"
+        [(ngModel)]="this.session.date"
+      />
     </div>
+    <div>
+      <label for="duree">Durée:</label>
+      <input
+        class="input"
+        type="text"
+        id="duree"
+        name="duree"
+        [(ngModel)]="this.session.duree"
+      />
+    </div>
+    <div>
+      <label for="type">type:</label>
+      <input
+        class="input"
+        type="text"
+        id="type"
+        name="type"
+        [(ngModel)]="this.session.type"
+      />
+    </div>
+    <div>
+      <label for="clientId">ID candidat:</label>
+      <input
+        class="input"
+        type="text"
+        id="clientId"
+        name="clientId"
+        [(ngModel)]="this.session.clientId"
+      />
+    </div>
+    <div>
+      <label for="moniteurId">ID moniteur:</label>
+      <input
+        class="input"
+        type="text"
+        id="moniteurId"
+        name="moniteurId"
+        [(ngModel)]="this.session.moniteurId"
+      />
+    </div>
+    <div>
+      <label for="voitureId">ID Voiture:</label>
+      <input
+        class="input"
+        type="text"
+        id="voitureId"
+        name="voitureId"
+        [(ngModel)]="this.session.voitureId"
+      />
+    </div>
+    <!-- Other input fields -->
+    <div>
+      <button (click)="closePopup()">Cancel</button>
+      <button (click)="addSession()">Submit</button>
+    </div>
+  </div>
 </div>

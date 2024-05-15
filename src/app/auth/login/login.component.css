@@ -1,105 +1,118 @@
 .container {
-    height: 97vh;
-    font-family: inter;
+  height: 97vh;
+  font-family: inter;
+ 
+  
 }
-
-.navbar-brand {
-    font-size: 4vh;
-    color: white;
-    font-family: inter;
-    padding-top: 20px;
-    padding-left: 20px;
-    cursor: pointer;
-
-}
-
 .form-container {
-    
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
 }
-
+.navbar-brand {
+  font-size: 4vh;
+  color: rgb(255, 132, 0);
+  font-family: inter;
+  padding-top: 20px;
+  padding-left: 20px;
+  cursor: pointer;
+}
 .signin-container {
-    width: 25%;
-    height: 70%;
-    margin-top: 60px;
-    background-color: rgb(255, 254, 254);
-    padding: 20px;
-    border-radius: 15px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  margin-top: 80px;
+  width: 380px;
+  height: 80%;
+  background-color: rgb(255, 254, 254);
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #ff9d00;
+  box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px,
+    rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px,
+    rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
 }
 
 .signin-form h2 {
-    text-align: center;
-    margin-bottom: 20px;
+  margin-bottom: 20px;
+  color: #ff6600;
+  font-family: Inter;
 }
 
 .input-group {
-    margin-bottom: 15px;
+  margin-bottom: 15px;
+  width: 100%;
 }
 
 .input-group label {
-    display: block;
-    margin-bottom: 5px;
+  display: block;
+  margin-bottom: 5px;
+  margin-left: 30px;
+  color: black;
+  font-size: 19px;
 }
 
 .input-group input {
-    
-    width: 100%;
-    padding: 10px;
-    border: 0px;
-    height: 3vh;
-    border-bottom: 2px solid rgba(0, 51, 255, 0.702);
-    outline: none;
+  margin-left: 30px;
+  border-radius: 20px;
+  padding-left: 10px;
+  width: 80%;
+  border: 0px;
+  height: 7vh;
+  outline: none;
+  background-color: rgba(255, 166, 0, 0.112);
 }
 
 button {
-    background-color: rgba(26, 26, 220, 0.768);
-    box-shadow: rgba(0, 51, 255, 0.613) 0px 2px 4px, rgba(0, 51, 255, 0.474) 0px 7px 13px -3px, rgba(0, 51, 255, 0.531) 0px -3px 0px inset;
-    color: white;
-    padding: 2px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    height: 35px;
-    width: 30vh;
-    margin-top: 20px;
+  background-color: rgb(255, 136, 0);
+  color: white;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  height: 40px;
+  width: 30vh;
+  margin-top: 20px;
+  font-weight: 600;
+  font-size: 18px;
+  font-family: Inter;
+  box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px,
+    rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px,
+    rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
 }
 
 button:hover {
-    background-color: #0114a1;
-    scale: 1.05;
-    transition: 0.6s;
+  background-color: #ff6600;
+  scale: 1.05;
+  transition: 0.3s;
 }
 
 .signup-link {
-    text-align: center;
-    margin-top: 20px;
+  text-align: center;
+  margin-top: 20px;
+  color: black;
 }
 
 .signup-link a {
-    color: #000dbecf;
-    text-decoration: none;
+  text-decoration: none;
+  color: #ff8c00cf;
+  font-weight: 600;
 }
 
 .signup-link a:hover {
-    text-decoration: underline;
-    cursor: default;
+  text-decoration: underline;
+  cursor: default;
 }
 
 @media (max-width: 768px) {
-    .signin-container {
-        flex-direction: column;
-        width: 90%;
-        height: auto;
-    }
+  .signin-container {
+    flex-direction: column;
+    width: 90%;
+    height: auto;
+  }
 
-    .left-side,
-    .right-side {
-        width: 100%;
-        flex: none;
-    }
+  .left-side,
+  .right-side {
+    width: 100%;
+    flex: none;
+  }
 }

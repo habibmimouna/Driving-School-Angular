@@ -5,23 +5,23 @@
     <div class="credentials">
       <div class="label">
         Nom:
-        <div class="data">{{ user.nom }}</div>
+        <div class="data">{{ currentUser.nom }}</div>
       </div>
       <div class="label">
         Age:
-        <div class="data">{{ user.age }} ans</div>
+        <div class="data">{{ currentUser.age }} ans</div>
       </div>
       <div class="label">
         CIN:
-        <div class="data">{{ user.cin }}</div>
+        <div class="data">{{ currentUser.cin }}</div>
       </div>
       <div class="label">
         Email:
-        <div class="data">{{ user.email }}</div>
+        <div class="data">{{ currentUser.email }}</div>
       </div>
       <div class="label">
         Etat:
-        <div class="data">{{ user.etat_Condidat }}</div>
+        <div class="data">{{ currentUser.etat_Condidat }}</div>
       </div>
     </div>
     <div class="log-butt">
@@ -36,7 +36,7 @@
         
       </caption>
       <thead>
-        <tr>
+        <tr *ngFor="let data of carsList">
           <th scope="col">Matricule</th>
           <th scope="col">Kilométrage</th>
           <th scope="col">Garage</th>
@@ -44,12 +44,12 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let data of pastSessions" class="row">
-          <td>{{ data.type }}</td>
-          <td>{{ data.date }}</td>
-          <td>{{ data.duree }}</td>
+        <tr *ngFor="let data of carsList" class="row">
+          <td>{{ data.matricule }}</td>
+          <td>{{ data.kilometrage }}</td>
+          <td>{{ data.garage }}</td>
 
-          <td>{{ data.moniteurId }}</td>
+          <td>{{ data.dateVisit }}</td>
         </tr>
       </tbody>
     </table>

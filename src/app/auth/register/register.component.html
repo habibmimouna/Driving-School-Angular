@@ -1,9 +1,8 @@
 <div class="container">
-    <div class="navbar-brand" routerLink="/home">Roadwise Academy</div>
-    <div class="form-container">
+  <div class="navbar-brand" routerLink="/home">Roadwise Academy</div>
+  <div class="form-container">
     <form (ngSubmit)="onSubmit()" class="signup-container">
       <div class="header">
-        <img class="header-img" src="../../../assets/logo.png" />
         <h3>Welcome To Roadwise Academy</h3>
       </div>
       <p>Please fill all cases carefully</p>
@@ -11,9 +10,14 @@
         <div class="col-1">
           <div class="input-group">
             <label for="email" id="email">E-mail</label>
-            <input type="text" id="email" [(ngModel)]="user.email" name="email" />
+            <input
+              type="text"
+              id="email"
+              [(ngModel)]="user.email"
+              name="email"
+            />
           </div>
-  
+
           <div class="input-group">
             <label for="password">Password</label>
             <input
@@ -26,22 +30,43 @@
         </div>
         <div class="col-2">
           <div class="input-group">
-            <label for="adress">CIN</label>
+            <label for="cin">CIN</label>
             <input
               type="text"
-              id="adress"
+              id="cin"
               [(ngModel)]="user.cin"
-              name="adress"
+              name="cin"
             />
           </div>
-  
+
           <div class="input-group">
-            <label for="numéroTel">Phone</label>
+            <label for="nom">Full name</label>
             <input
               type="text"
-              id="numéroTel"
-              [(ngModel)]="user.age"
-              name="numéroTel"
+              id="nom"
+              [(ngModel)]="user.nom"
+              name="nom"
+            />
+          </div>
+        </div>
+        <div class="col-3">
+          <div class="input-group">
+            <label for="userAge">Age</label>
+            <input
+              type="number"
+              id="userAge"
+              [(ngModel)]="this.userAge"
+              name="userAge"
+            />
+          </div>
+
+          <div class="input-group">
+            <label for="numéroTel">apprendre Code ou Conduite?</label>
+            <input
+              type="text"
+              id="etat_Condidat"
+              [(ngModel)]="user.etat_Condidat"
+              name="etat_Condidat"
             />
           </div>
         </div>
@@ -53,9 +78,7 @@
         <p class="signin-link">
           Already have an account? <a routerLink="/auth/login">Log in</a>
         </p>
-        <p routerLink="/home" class="back-home">Back Home</p>
       </div>
     </form>
   </div>
-  </div>
-  
+</div>

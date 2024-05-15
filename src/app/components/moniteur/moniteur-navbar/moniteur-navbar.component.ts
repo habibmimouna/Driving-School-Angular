@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-moniteur-navbar',
@@ -9,5 +9,12 @@ import { RouterLink } from '@angular/router';
   styleUrl: './moniteur-navbar.component.css'
 })
 export class MoniteurNavbarComponent {
+  constructor(private router:Router){}
+  logout(){
+    localStorage.removeItem('token')
+    localStorage.removeItem('currentUser')
+    this.router.navigate(['/auth/login']);
+
+  }
 
 }
